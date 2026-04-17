@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Surucuá | O Ápice do Luxo Natural em Bonito</title>
+    <meta name="description" content="A sua escapada perfeita em Bonito começa aqui — conforto, natureza e uma experiência inesquecível.">
+    
+    <!-- Preload da Imagem Principal -->
+    <link rel="preload" as="image" href="https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg.webp">
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Montserrat (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pearl: '#FAFAF7',      /* Branco osso ultra-suave */
+                            sand: '#F2EFE9',       /* Areia bem clara para seções alternadas */
+                            navy: '#08111A',       /* Azul marinho profundo e orgânico */
+                            gold: '#C5A467',       /* Ouro Champagne Elegante */
+                            goldLight: '#DFCDA3',  /* Champagne claro */
+                            accent: '#8C6C38'      /* Ouro escuro/bronze para sombras */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        widest: '.25em',
+                        mega: '.4em',
+                    },
+                    transitionTimingFunction: {
+                        'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Light Theme Premium */
+        body { 
+            background-color: #FAFAF7; 
+            color: #08111A; 
+            overflow-x: hidden; 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body.loading-active { overflow: hidden; }
+
+        ::selection { background: #C5A467; color: #fff; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FAFAF7; }
+        ::-webkit-scrollbar-thumb { background: #DFCDA3; border-radius: 10px; }
+
+        /* Textura Sutil (Noise) */
+        .bg-grain { 
+            position: absolute; inset: 0; pointer-events: none; z-index: 1; mix-blend-mode: multiply; opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Divisórias Premium Editoriais */
+        .premium-divider { 
+            height: 1px; 
+            width: 1px; 
+            background: #C5A467; 
+            margin: 0 auto; 
+            position: relative; 
+            z-index: 10;
+            transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active .premium-divider { height: 120px; }
+        
+        .divider-horizontal {
+            height: 1px; width: 0%; background: linear-gradient(90deg, transparent, rgba(197, 164, 103, 0.4), transparent);
+            margin: 0 auto; transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active .divider-horizontal { width: 60%; }
+
+        /* Preloader Cinematográfico */
+        #preloader { transition: opacity 1s ease, visibility 1s; backdrop-filter: blur(10px); background-color: #FAFAF7; z-index: 10000; }
+        .preloader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .progress-line { width: 0%; transition: width 1.5s ease-in-out; }
+
+        /* Animações Flutuantes */
+        @keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .animate-float { animation: float-soft 6s ease-in-out infinite; }
+
+        /* Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .reveal-blur { opacity: 0; filter: blur(10px); transform: translateY(20px) scale(0.98); transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-blur.active { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+        
+        .delay-1 { transition-delay: 200ms; }
+        .delay-2 { transition-delay: 400ms; }
+
+        /* Hero Image - Kenburns e Degradê Vignette */
+        @keyframes kenburns { 
+            0% { transform: scale(1.05) translate(0, 0); } 
+            100% { transform: scale(1.15) translate(-1%, -1%); } 
+        }
+        .bg-hero-img {
+            position: absolute; inset: 0;
+            background-image: url('https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg.webp'); 
+            background-size: cover; background-position: center;
+            animation: kenburns 40s ease-in-out infinite alternate; z-index: 0;
+            will-change: transform;
+        }
+        .hero-overlay { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(180deg, rgba(8,17,26,0.6) 0%, rgba(8,17,26,0.3) 40%, rgba(250,250,247,0.95) 90%, rgba(250,250,247,1) 100%); 
+            z-index: 1; 
+        }
+
+        /* Carrossel Hero */
+        #hero-carousel { display: grid; }
+        .hero-text-slide { 
+            grid-area: 1 / 1; opacity: 0; transform: translateY(15px); 
+            transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); 
+            pointer-events: none; width: 100%; 
+        }
+        .hero-text-slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 10; }
+
+        /* Botões de Luxo */
+        .btn-gold {
+            position: relative; overflow: hidden; background-color: #C5A467; color: #FFFFFF;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid #DFCDA3; z-index: 1;
+        }
+        .btn-gold::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #8C6C38; transform: scaleY(0); transform-origin: bottom;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1;
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(197, 164, 103, 0.3); border-color: #8C6C38; }
+        .btn-gold:hover::before { transform: scaleY(1); }
+
+        .btn-outline {
+            position: relative; overflow: hidden; border: 1px solid rgba(8, 17, 26, 0.2); 
+            color: #08111A; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); background: transparent;
+        }
+        .btn-outline:hover { background-color: #08111A; color: #FAFAF7; border-color: #08111A; }
+
+        /* Header Transparente -> Sólido */
+        .header-scrolled {
+            background: rgba(250, 250, 247, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(197, 164, 103, 0.15); box-shadow: 0 10px 40px rgba(8, 17, 26, 0.03);
+            padding-top: 1rem !important; padding-bottom: 1rem !important;
+        }
+
+        /* Marquee Testimonials Premium */
+        .mask-edges { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 50s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
+        
+        .testimonial-card {
+            background: #FFFFFF; border: 1px solid rgba(197, 164, 103, 0.15);
+            transition: all 0.5s ease;
+        }
+        .testimonial-card:hover { border-color: #C5A467; box-shadow: 0 20px 50px rgba(8, 17, 26, 0.05); transform: translateY(-5px); }
+
+        /* Molduras Clássicas Deslocadas (Offset) para Experiências */
+        .img-offset-container { position: relative; }
+        .img-offset-frame { position: absolute; border: 1px solid rgba(197, 164, 103, 0.4); z-index: 0; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-offset-frame-left { inset: -15px 15px 15px -15px; }
+        .img-offset-frame-right { inset: -15px -15px 15px 15px; }
+        .img-offset-img { position: relative; z-index: 1; box-shadow: 0 25px 50px rgba(8, 17, 26, 0.08); overflow: hidden; border-radius: 2px; }
+        .group:hover .img-offset-frame-left { inset: -8px 8px 8px -8px; border-color: #C5A467; }
+        .group:hover .img-offset-frame-right { inset: -8px -8px 8px 8px; border-color: #C5A467; }
+
+        /* Molduras Fotográficas - Efeito Cortina */
+        .img-curtain { position: relative; overflow: hidden; border-radius: 4px; }
+        .img-curtain::after {
+            content: ''; position: absolute; inset: 0; background-color: #FAFAF7;
+            transform-origin: bottom; transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.2s; z-index: 2;
+        }
+        .reveal.active .img-curtain::after, .reveal-blur.active .img-curtain::after { transform: scaleY(0); }
+        
+        /* Zoom suave nas imagens */
+        .img-zoom { transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .group:hover .img-zoom { transform: scale(1.05); }
+
+        /* Galeria Editorial (Bento Layout) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .gallery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 1.5rem; }
+            .item-large { grid-column: span 2; grid-row: span 2; }
+            .item-tall { grid-row: span 2; }
+            .item-wide { grid-column: span 2; }
+        }
+        
+        .gallery-item { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: all 1.5s ease; filter: saturate(0.9); }
+        .gallery-item:hover img { transform: scale(1.05); filter: saturate(1.1); }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,17,26,0.8) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.5s ease; display: flex; align-items: flex-end; padding: 1.5rem;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    </style>
+</head>
+<body class="antialiased font-sans bg-brand-pearl loading-active relative text-brand-navy flex flex-col items-center">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-brand-pearl w-full">
+        <img src="logo.png" alt="Surucuá Logo" class="h-20 mb-8 animate-pulse" style="opacity: 0.8;">
+        <div class="w-48 h-[1px] bg-brand-navy/10 relative overflow-hidden">
+            <div id="progress-bar" class="absolute inset-0 bg-brand-gold progress-line"></div>
+        </div>
+        <p class="mt-6 text-brand-navy/50 text-[9px] uppercase tracking-mega font-medium">Orquestrando a sua experiência...</p>
+    </div>
+
+    <!-- Popup VIP -->
+    <div id="exit-popup" class="fixed inset-0 z-[9998] bg-brand-navy/80 backdrop-blur-sm hidden flex-col items-center justify-center px-4 opacity-0 transition-opacity duration-700 w-full">
+        <div class="bg-brand-pearl rounded-xl shadow-2xl max-w-2xl w-full p-10 md:p-16 relative text-center border border-brand-gold/20 transform scale-95 transition-transform duration-700 flex flex-col items-center" id="popup-content">
+            <button onclick="closePopup()" class="absolute top-6 right-6 text-brand-navy/40 hover:text-brand-accent transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <div class="mb-6 animate-float">
+                <svg class="w-12 h-12 text-brand-gold mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+            </div>
+            <h2 class="font-serif text-4xl md:text-5xl text-brand-navy mb-4 leading-tight">Um Convite <br><span class="italic text-brand-gold">Exclusivo</span></h2>
+            <p class="text-brand-navy/70 font-medium mb-10 text-sm md:text-base leading-relaxed max-w-md">Desbloqueie tarifas restritas e celebre sua chegada com nosso <strong>Chá da Tarde Premium</strong>, uma cortesia reservada a quem reserva diretamente conosco.</p>
+            <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-gold flex items-center justify-center w-full max-w-sm py-5 text-[11px] uppercase tracking-mega font-bold rounded-md">Aceitar Convite</a>
+            <button onclick="closePopup()" class="mt-6 text-[10px] text-brand-navy/50 uppercase tracking-widest font-semibold hover:text-brand-navy transition-colors">Continuar explorando</button>
+        </div>
+    </div>
+
+    <!-- Header Elegante -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-700 py-6 flex justify-center border-b border-transparent">
+        <div class="max-w-[1600px] w-full px-6 lg:px-12 flex justify-between items-center">
+            <a href="#" class="flex items-center hover:opacity-80 transition-opacity z-50">
+                <img src="logo.png" alt="Logo Pousada Surucuá" class="h-[50px] md:h-[65px] object-contain">
+            </a>
+            <nav class="hidden lg:flex items-center space-x-12 text-[10px] tracking-widest uppercase text-brand-navy font-semibold transition-colors duration-500">
+                <a href="#diferencial" class="hover:text-brand-gold transition-colors relative group">
+                    A Maestria <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#quartos" class="hover:text-brand-gold transition-colors relative group">
+                    Santuários <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#experiencias" class="hover:text-brand-gold transition-colors relative group">
+                    Jornadas <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#galeria" class="hover:text-brand-gold transition-colors relative group">
+                    Memórias <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-gold px-8 py-3 rounded-md shadow-lg font-bold">A Sua Chave</a>
+            </nav>
+            <button class="lg:hidden p-2 text-brand-navy z-50" id="mobile-menu-btn" aria-label="Menu">
+                <div class="space-y-2"><span class="block w-8 h-[1px] bg-current"></span><span class="block w-6 h-[1px] bg-current ml-auto"></span></div>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-pearl flex flex-col items-center justify-center space-y-8 text-brand-navy opacity-0 pointer-events-none transition-all duration-700 z-40 w-full h-[100svh]">
+            <div class="flex flex-col items-center space-y-10 w-full px-6 text-center">
+                <a href="#diferencial" class="mobile-link text-3xl font-serif italic hover:text-brand-gold transition-colors">A Maestria</a>
+                <a href="#quartos" class="mobile-link text-3xl font-serif italic hover:text-brand-gold transition-colors">Santuários</a>
+                <a href="#experiencias" class="mobile-link text-3xl font-serif italic hover:text-brand-gold transition-colors">Jornadas</a>
+                <a href="#galeria" class="mobile-link text-3xl font-serif italic hover:text-brand-gold transition-colors">Memórias</a>
+                <div class="w-12 h-[1px] bg-brand-gold/30"></div>
+                <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-gold px-12 py-5 text-[11px] font-bold uppercase tracking-mega rounded-md w-full max-w-[280px]">Reservar Agora</a>
+                
+                <div class="flex gap-6 mt-8">
+                    <a href="https://instagram.com/pousadasurucua" target="_blank" class="text-brand-navy/60 hover:text-brand-gold text-2xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/PousadaSurucua" target="_blank" class="text-brand-navy/60 hover:text-brand-gold text-2xl"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[100svh] min-h-[600px] w-full flex items-center justify-center text-center overflow-hidden px-4">
+        <div class="bg-hero-img"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="relative z-10 w-full max-w-5xl flex flex-col items-center mt-12 md:mt-24 reveal-blur">
+            <div class="text-brand-gold text-[10px] md:text-xs tracking-mega uppercase font-bold mb-6 md:mb-8 animate-float flex items-center gap-4">
+                <span class="w-8 h-[1px] bg-brand-gold/60 hidden md:block"></span>
+                Bonito, Mato Grosso do Sul
+                <span class="w-8 h-[1px] bg-brand-gold/60 hidden md:block"></span>
+            </div>
+
+            <div id="hero-carousel" class="w-full mb-10 md:mb-14 px-2">
+                <div class="hero-text-slide active">
+                    <h1 class="font-serif text-5xl sm:text-6xl md:text-[6.5rem] lg:text-[7.5rem] text-white font-light leading-[1.05] mb-8">
+                        O ápice do luxo <br class="hidden md:block"><span class="italic text-brand-goldLight">na natureza.</span>
+                    </h1>
+                    <p class="text-sm md:text-lg lg:text-xl text-white/80 font-light max-w-2xl mx-auto leading-loose tracking-widest px-4">
+                        Uma morada onde cada instante é orquestrado para transcender as suas expectativas mais elevadas.
+                    </p>
+                </div>
+                <div class="hero-text-slide">
+                    <h1 class="font-serif text-5xl sm:text-6xl md:text-[6.5rem] lg:text-[7.5rem] text-white font-light leading-[1.05] mb-8">
+                        Santuário de <br class="hidden md:block"><span class="italic text-brand-goldLight">serenidade.</span>
+                    </h1>
+                    <p class="text-sm md:text-lg lg:text-xl text-white/80 font-light max-w-2xl mx-auto leading-loose tracking-widest px-4">
+                        A coreografia perfeita entre design de excelência e a pureza selvagem, reservada para si.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="reveal delay-1 mt-4">
+                <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-gold flex items-center justify-center px-10 md:px-14 py-5 md:py-6 rounded-md text-[10px] md:text-xs font-bold uppercase tracking-mega shadow-2xl">
+                    Descobrir Disponibilidade
+                </a>
+            </div>
+
+            <div class="flex items-center gap-6 md:gap-12 opacity-80 z-30 mt-16 md:mt-24 text-brand-navy">
+                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-gold"></div><span class="text-[9px] tracking-mega uppercase font-semibold text-white">Tarifas VIP</span></div>
+                <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-gold"></div><span class="text-[9px] tracking-mega uppercase font-semibold text-white">Chá da Tarde</span></div>
+                <div class="flex items-center gap-2 hidden sm:flex"><div class="w-1.5 h-1.5 rounded-full bg-brand-gold"></div><span class="text-[9px] tracking-mega uppercase font-semibold text-white">Concierge</span></div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 opacity-60">
+            <span class="text-white text-[8px] uppercase tracking-widest font-bold">Explorar</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Social Proof Editorial -->
+    <section id="depoimentos" class="py-32 bg-brand-pearl relative overflow-hidden flex flex-col items-center">
+        <div class="bg-grain"></div>
+        <div class="w-full relative z-10 text-center">
+            
+            <div class="reveal mb-16 flex flex-col items-center">
+                <div class="flex justify-center gap-2 mb-6 text-brand-gold text-sm md:text-base">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-[3.5rem] text-brand-navy leading-tight max-w-4xl mx-auto px-4">
+                    "O apogeu da hospedagem em Bonito. <span class="italic text-brand-accent">Simplesmente irretocável.</span>"
+                </h2>
+                <p class="text-brand-navy/40 text-[10px] mt-8 uppercase tracking-mega font-bold">TripAdvisor Choice</p>
+            </div>
+
+            <!-- Marquee -->
+            <div class="w-full mask-edges reveal delay-1 py-10 overflow-hidden">
+                <div class="animate-marquee flex gap-8 px-4">
+                    
+                    <!-- Card 1 -->
+                    <div class="testimonial-card flex-none w-[300px] md:w-[400px] p-10 rounded-sm text-left flex flex-col">
+                        <svg class="w-8 h-8 text-brand-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-brand-navy/80 text-base md:text-lg font-serif italic mb-6 leading-relaxed flex-grow">"Uma maestria excepcional na arte de receber. Cada detalhe respira cuidado e a nossa escolha por Bonito foi imortalizada pela perfeição deste refúgio."</p>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-brand-accent pt-4 border-t border-brand-gold/20">Hóspede Verificado</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="testimonial-card flex-none w-[300px] md:w-[400px] p-10 rounded-sm text-left flex flex-col">
+                        <svg class="w-8 h-8 text-brand-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-brand-navy/80 text-base md:text-lg font-serif italic mb-6 leading-relaxed flex-grow">"O chá da tarde é inesquecível. A estrutura, a piscina, o quarto... tudo feito com muito amor. É um verdadeiro oásis para a alma."</p>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-brand-accent pt-4 border-t border-brand-gold/20">Booking.com</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="testimonial-card flex-none w-[300px] md:w-[400px] p-10 rounded-sm text-left flex flex-col">
+                        <svg class="w-8 h-8 text-brand-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-brand-navy/80 text-base md:text-lg font-serif italic mb-6 leading-relaxed flex-grow">"Acordar com o canto dos pássaros e usufruir de um serviço que antecipa as nossas necessidades não tem preço. Memorável."</p>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-brand-accent pt-4 border-t border-brand-gold/20">Google Reviews</p>
+                    </div>
+                    
+                    <!-- Clones for infinite scroll -->
+                    <div class="testimonial-card flex-none w-[300px] md:w-[400px] p-10 rounded-sm text-left flex flex-col">
+                        <svg class="w-8 h-8 text-brand-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-brand-navy/80 text-base md:text-lg font-serif italic mb-6 leading-relaxed flex-grow">"Uma maestria excepcional na arte de receber. Cada detalhe respira cuidado e a nossa escolha por Bonito foi imortalizada pela perfeição deste refúgio."</p>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-brand-accent pt-4 border-t border-brand-gold/20">Hóspede Verificado</p>
+                    </div>
+                    <div class="testimonial-card flex-none w-[300px] md:w-[400px] p-10 rounded-sm text-left flex flex-col">
+                        <svg class="w-8 h-8 text-brand-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-brand-navy/80 text-base md:text-lg font-serif italic mb-6 leading-relaxed flex-grow">"O chá da tarde é inesquecível. A estrutura, a piscina, o quarto... tudo feito com muito amor. É um verdadeiro oásis para a alma."</p>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-brand-accent pt-4 border-t border-brand-gold/20">Booking.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Maestria (Valores) -->
+    <section id="diferencial" class="py-32 bg-brand-sand relative flex flex-col items-center">
+        <div class="reveal"><div class="premium-divider"></div></div>
+        
+        <div class="max-w-[1400px] w-full mx-auto px-6 mt-24 relative z-10 text-center">
+            <div class="mb-20 reveal">
+                <span class="text-brand-gold text-[10px] tracking-mega uppercase font-bold block mb-6">A Essência</span>
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-[5rem] text-brand-navy leading-tight">A arte de receber <br><span class="italic text-brand-accent">com imaculada perfeição</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 reveal delay-1 text-center">
+                <!-- Item 1 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full border border-brand-gold/30 flex items-center justify-center mb-8 bg-white transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-xl">
+                        <i class="fa-solid fa-leaf text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl text-brand-navy mb-4">Natureza & Paz</h3>
+                    <p class="text-brand-navy/60 text-sm md:text-base leading-relaxed max-w-xs">Envolto na natureza exuberante, um silêncio restaurador que acalma o espírito.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full border border-brand-gold/30 flex items-center justify-center mb-8 bg-white transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-xl">
+                        <i class="fa-solid fa-mug-hot text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl text-brand-navy mb-4">Chá Exclusivo</h3>
+                    <p class="text-brand-navy/60 text-sm md:text-base leading-relaxed max-w-xs">Uma cortesia majestosa após seus passeios, servindo iguarias regionais delicadas.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full border border-brand-gold/30 flex items-center justify-center mb-8 bg-white transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-xl">
+                        <i class="fa-solid fa-bed text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl md:text-3xl text-brand-navy mb-4">Refúgio Premium</h3>
+                    <p class="text-brand-navy/60 text-sm md:text-base leading-relaxed max-w-xs">Suítes sublimemente estruturadas com enxoval premium para o descanso absoluto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quartos (Santuários) -->
+    <section id="quartos" class="py-32 bg-brand-pearl overflow-hidden flex flex-col items-center">
+        <div class="reveal"><div class="divider-horizontal"></div></div>
+        
+        <div class="max-w-[1400px] w-full mx-auto px-6 mt-24 space-y-32 md:space-y-48 relative z-10">
+            
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-[5rem] text-brand-navy">Os Nossos <span class="italic text-brand-gold">Santuários</span></h2>
+            </div>
+
+            <!-- Quarto 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 reveal">
+                <div class="w-full lg:w-[55%] img-curtain group">
+                    <div class="aspect-[4/3] overflow-hidden rounded-md">
+                        <img src="https://pousadasurucua.com.br/wp-content/uploads/2022/05/pousada-em-bonito-quarto-luxo-familia.jpg" alt="Suíte Luxo" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[45%] flex flex-col justify-center text-center lg:text-left">
+                    <span class="text-brand-gold text-[10px] tracking-mega uppercase font-bold mb-4">Acomodação Principal</span>
+                    <h3 class="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Suíte Luxo</h3>
+                    <p class="text-base md:text-lg text-brand-navy/70 leading-loose mb-10 max-w-md mx-auto lg:mx-0">
+                        Atmosfera de sofisticação ímpar, desenhada para revitalizar corpo e mente com lençóis de puro algodão e isolamento acústico.
+                    </p>
+                    <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-outline self-center lg:self-start px-10 py-4 text-[10px] font-bold uppercase tracking-mega rounded-sm">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Quarto 2 (Reverso) -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 reveal delay-1">
+                <div class="w-full lg:w-[55%] img-curtain group">
+                    <div class="aspect-[4/3] overflow-hidden rounded-md">
+                        <img src="https://pousadasurucua.com.br/wp-content/uploads/2024/08/hotel-pousada-em-bonito-redario.jpg" alt="Jardins" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[45%] flex flex-col justify-center text-center lg:text-left">
+                    <span class="text-brand-gold text-[10px] tracking-mega uppercase font-bold mb-4">Área de Repouso</span>
+                    <h3 class="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Jardins <span class="italic text-brand-gold">Surucuá</span></h3>
+                    <p class="text-base md:text-lg text-brand-navy/70 leading-loose mb-10 max-w-md mx-auto lg:mx-0">
+                        Um retiro verdejante consagrado à quietude. Descanse nos nossos redários à sombra das árvores nativas, envolto na brisa pura.
+                    </p>
+                    <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-outline self-center lg:self-start px-10 py-4 text-[10px] font-bold uppercase tracking-mega rounded-sm">Explorar Refúgio</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experiências / Jornadas (Layout Original Restaurado) -->
+    <section id="experiencias" class="py-32 bg-brand-sand overflow-hidden flex flex-col items-center">
+        <div class="reveal"><div class="divider-horizontal"></div></div>
+        <div class="max-w-[1400px] w-full mx-auto px-6 mt-24 space-y-32 md:space-y-40 relative z-10">
+
+            <!-- 1. Momentos em Família -->
+            <div class="flex flex-col lg:flex-row items-center gap-0 reveal">
+                <div class="w-full lg:w-[60%] img-offset-container group">
+                    <div class="img-offset-frame img-offset-frame-left hidden md:block"></div>
+                    <div class="img-offset-img aspect-[4/3] img-curtain">
+                        <!-- Imagem atualizada em alta resolução e livre de expiração CDN -->
+                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1200&auto=format&fit=crop" alt="Momentos em Família" loading="lazy" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <!-- Box Branco Sobreposto como na captura de tela -->
+                <div class="w-full lg:w-[45%] lg:-ml-16 relative z-20 bg-white p-10 md:p-16 shadow-[0_20px_50px_rgba(8,17,26,0.06)] border border-brand-gold/10 flex flex-col justify-center text-left mt-[-2rem] lg:mt-0">
+                    <h3 class="font-serif text-4xl sm:text-5xl md:text-[4rem] text-brand-navy mb-6">Momentos <span class="italic text-brand-gold">em Família</span></h3>
+                    <p class="text-sm md:text-lg text-brand-navy/70 leading-loose font-medium mb-8">O cenário irretocável para eternizar laços, partilhando café da manhã poético e risos ao lado de quem você ama!</p>
+                    <div class="space-y-4 border-y border-brand-navy/5 py-6 mb-8 flex flex-col w-full">
+                        <div class="flex items-center gap-4 font-black text-[10px] md:text-xs uppercase tracking-widest text-brand-navy"><i class="fa-solid fa-check text-brand-gold text-lg"></i> <span class="text-brand-navy/80">Gastronomia Poética</span></div>
+                        <div class="flex items-center gap-4 font-black text-[10px] md:text-xs uppercase tracking-widest text-brand-navy"><i class="fa-solid fa-check text-brand-gold text-lg"></i> <span class="text-brand-navy/80">Lembranças Imortais</span></div>
+                    </div>
+                    <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="inline-flex items-center justify-center self-start px-10 py-5 text-[10px] font-bold uppercase tracking-mega rounded-sm transition-all border border-brand-gold/40 text-brand-navy hover:bg-brand-navy hover:text-white">👉 Ascenda ao Convite</a>
+                </div>
+            </div>
+
+            <!-- 2. Descubra as Maravilhas -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 reveal delay-1">
+                <div class="w-full lg:w-[55%] img-offset-container group">
+                    <div class="img-offset-frame img-offset-frame-right hidden md:block"></div>
+                    <div class="img-offset-img aspect-[4/3] img-curtain">
+                        <img src="https://pousadasurucua.com.br/wp-content/uploads/2022/03/pousada-bonito-ms-passeio-grutas.jpg" alt="Passeios em Bonito" loading="lazy" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[45%] flex flex-col justify-center text-left">
+                    <h2 class="font-serif text-4xl sm:text-5xl md:text-[4.5rem] text-brand-navy leading-[1.1] mb-8">Descubra as maravilhas com <br><span class="italic text-brand-gold">absoluta majestade</span></h2>
+                    <p class="text-sm md:text-lg text-brand-navy/70 leading-loose font-medium mb-10">Orquestramos cada fragmento da sua jornada para que o seu único foco seja a imersão na magnificência — sem atritos, apenas o deslumbre contínuo.</p>
+                    <div class="space-y-5 flex flex-col w-full">
+                        <div class="flex items-center gap-4"><i class="fa-solid fa-check text-brand-gold text-lg"></i><p class="text-brand-navy/90 font-bold tracking-wide text-sm md:text-base">Curadoria Exclusiva</p></div>
+                        <div class="flex items-center gap-4"><i class="fa-solid fa-check text-brand-gold text-lg"></i><p class="text-brand-navy/90 font-bold tracking-wide text-sm md:text-base">Diligência Concierge</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Santuário D'água -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal">
+                <div class="w-full lg:w-[55%] img-offset-container group">
+                    <div class="img-offset-frame img-offset-frame-left hidden md:block"></div>
+                    <div class="img-offset-img aspect-[4/3] img-curtain">
+                        <!-- Imagem atualizada da piscina -->
+                        <img src="https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg" alt="Piscina da Pousada" loading="lazy" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[45%] flex flex-col justify-center text-left">
+                    <span class="text-brand-gold text-[10px] tracking-mega uppercase font-bold mb-4">Santuário D'Água</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl md:text-[4.5rem] text-brand-navy leading-[1.1] mb-8">A purificação de se <br><span class="italic text-brand-gold">deixar elevar</span></h2>
+                    <p class="text-sm md:text-lg text-brand-navy/70 leading-loose font-medium mb-10">Renda-se ao som límpido das águas sob o sol dourado. Os nossos espaços transcendem a mera estadia, erigindo o altar do seu renascimento.</p>
+                    <div class="space-y-5 flex flex-col w-full">
+                        <div class="flex items-center gap-4"><i class="fa-solid fa-water text-brand-gold text-lg"></i><p class="text-brand-navy/90 font-bold tracking-wide text-sm md:text-base">Reflexo Cristalino</p></div>
+                        <div class="flex items-center gap-4"><i class="fa-solid fa-leaf text-brand-gold text-lg"></i><p class="text-brand-navy/90 font-bold tracking-wide text-sm md:text-base">Abraço Terrestre</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. O Toque Sereno -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 reveal delay-1">
+                <div class="w-full lg:w-[55%] img-offset-container group">
+                    <div class="img-offset-frame img-offset-frame-right hidden md:block"></div>
+                    <div class="img-offset-img aspect-[4/3] img-curtain">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop" alt="Serviço de Massagem" loading="lazy" class="w-full h-full object-cover img-zoom">
+                    </div>
+                </div>
+                <div class="w-full lg:w-[45%] flex flex-col justify-center text-left">
+                    <h2 class="font-serif text-4xl sm:text-5xl md:text-[4.5rem] text-brand-navy leading-[1.1] mb-8">O Toque Sereno <br><span class="italic text-brand-gold">da Natureza</span></h2>
+                    <div class="text-sm md:text-lg text-brand-navy/70 leading-loose font-medium mb-10 space-y-4">
+                        <p>Relaxe cercado pela tranquilidade de Bonito e renove suas energias.</p>
+                        <p>Entregue-se a terapias profundas conduzidas pelas nossas especialistas. Cada técnica é uma viagem esculpida minuciosamente para purificar o seu plano físico e onírico.</p>
+                    </div>
+                    <div class="flex items-center gap-3 font-black text-[10px] md:text-xs uppercase tracking-widest text-brand-gold mb-10">
+                        <i class="fa-solid fa-clock text-lg"></i> Vagas limitadas
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=556732552337&text=Gostaria%20de%20agendar%20uma%20massagem!" target="_blank" class="inline-flex items-center justify-center self-start px-10 py-5 text-[10px] font-bold uppercase tracking-mega rounded-sm transition-all border border-brand-gold/40 text-brand-navy hover:bg-brand-navy hover:text-white">👉 Agende seu horário</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Galeria Bento/Editorial (Coleção de Memórias Preservada) -->
+    <section id="galeria" class="py-32 bg-brand-pearl relative flex flex-col items-center">
+        <div class="reveal"><div class="premium-divider"></div></div>
+        
+        <div class="max-w-[1400px] w-full mx-auto px-6 mt-24">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl sm:text-5xl md:text-[5rem] text-brand-navy mb-6">Coleção de <span class="italic text-brand-gold">Memórias</span></h2>
+                <a href="https://instagram.com/pousadasurucua" target="_blank" class="inline-flex items-center text-brand-navy hover:text-brand-accent transition-colors uppercase tracking-mega text-[10px] font-bold mt-4">
+                    <i class="fa-brands fa-instagram mr-3 text-lg"></i> Visite o Instagram
+                </a>
+            </div>
+
+            <!-- Bento Grid CSS -->
+            <div class="gallery-grid reveal delay-1">
+                <div class="gallery-item item-large">
+                    <img src="https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg" alt="Galeria">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram text-white text-2xl"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pousadasurucua.com.br/wp-content/uploads/2022/05/pousada-em-bonito-quarto-luxo-familia.jpg" alt="Galeria">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram text-white text-xl"></i></div>
+                </div>
+                <div class="gallery-item item-tall">
+                    <img src="https://pousadasurucua.com.br/wp-content/uploads/2022/03/pousada-bonito-ms-passeio-grutas.jpg" alt="Galeria">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram text-white text-xl"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pousadasurucua.com.br/wp-content/uploads/2024/08/hotel-pousada-em-bonito-redario.jpg" alt="Galeria">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram text-white text-xl"></i></div>
+                </div>
+                <div class="gallery-item item-wide">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop" alt="Spa">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram text-white text-xl"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video & Localização -->
+    <section class="py-32 bg-brand-sand relative flex flex-col items-center">
+        <div class="max-w-[1200px] w-full mx-auto px-6 reveal text-center">
+            
+            <h2 class="font-serif text-3xl md:text-5xl text-brand-navy mb-16">A graciosidade do <span class="italic text-brand-gold">agora.</span></h2>
+
+            <!-- Video Player Elegante -->
+            <div id="video-container" onclick="playVideo()" class="relative w-full aspect-[16/9] md:aspect-[21/9] cursor-pointer group bg-brand-navy overflow-hidden mb-32 rounded-sm shadow-2xl">
+                <img src="https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg" class="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105 opacity-80 group-hover:opacity-60" alt="Capa">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 transition-transform duration-700 group-hover:scale-110">
+                        <i class="fa-solid fa-play text-2xl ml-2"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 text-left bg-white p-10 md:p-16 border border-brand-gold/10 shadow-xl rounded-sm">
+                <div class="w-full md:w-1/2">
+                    <span class="text-brand-gold text-[10px] tracking-mega uppercase font-bold block mb-4">Localização</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-brand-navy mb-6">O Epicentro do Paraíso</h3>
+                    <p class="text-brand-navy/60 text-base md:text-lg leading-relaxed mb-8">Estrategicamente posicionada para convergir a facilidade de acesso às belezas de Bonito com o isolamento restaurador.</p>
+                    <a href="https://maps.app.goo.gl/CdtWFXWKFg8xEZ53A" target="_blank" class="text-[10px] font-bold uppercase tracking-mega text-brand-navy border-b border-brand-navy pb-1 hover:text-brand-gold hover:border-brand-gold transition-colors">Ver no Mapa</a>
+                </div>
+                <div class="w-full md:w-1/2 h-[300px] bg-brand-sand rounded-sm overflow-hidden border border-brand-gold/20">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.8052166542714!2d-56.4862590240409!3d-21.12759998054699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x947cbadf714d7a8d%3A0x63eb134ed6a143cd!2sPousada%20Surucu%C3%A1!5e0!3m2!1spt-PT!2sbr!4v1714000000000!5m2!1spt-PT!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA Deslumbrante -->
+    <section class="py-40 text-center px-6 relative overflow-hidden flex flex-col items-center">
+        <!-- Parallax BG estático via CSS cover -->
+        <div class="absolute inset-0 bg-[url('https://pousadasurucua.com.br/wp-content/uploads/2024/01/Pousada-em-Bonito-Surucua.jpg')] bg-cover bg-center bg-fixed transform scale-105"></div>
+        <div class="absolute inset-0 bg-brand-navy/80 z-0"></div>
+        
+        <div class="max-w-4xl w-full mx-auto reveal relative z-10 flex flex-col items-center py-16">
+            <h2 class="font-serif text-4xl sm:text-5xl md:text-[6rem] text-white mb-8 leading-[1.05]">
+                Sua história <br><span class="italic text-brand-goldLight">imortalizada aqui.</span>
+            </h2>
+            <p class="text-white/80 text-lg md:text-xl font-light mb-12 leading-loose max-w-2xl">
+                Reserve diretamente conosco para garantir o melhor valor, conforto primoroso e cortesias desenhadas exclusivamente para a sua chegada.
+            </p>
+            <a href="https://hotels.cloudbeds.com/reservation/ABJ5U8" target="_blank" class="btn-gold px-14 py-6 text-[11px] font-bold uppercase tracking-mega rounded-md shadow-2xl">
+                Ascenda ao Convite
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Minimalista -->
+    <footer class="bg-brand-pearl py-20 border-t border-brand-gold/10 flex flex-col items-center">
+        <div class="max-w-[1200px] w-full mx-auto px-6 flex flex-col items-center text-center">
+            <img src="logo.png" alt="Logo Pousada Surucuá" class="h-14 mb-10 opacity-90">
+            
+            <div class="flex gap-8 mb-12">
+                <a href="https://instagram.com/pousadasurucua" target="_blank" class="text-brand-navy/50 hover:text-brand-gold text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com/PousadaSurucua" target="_blank" class="text-brand-navy/50 hover:text-brand-gold text-2xl transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            
+            <p class="text-brand-navy/40 text-[9px] font-bold uppercase tracking-[0.4em]">
+                © 2026 SURUCUÁ. O ÁPICE DO LUXO EM BONITO-MS.
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Elegante -->
+    <a href="https://api.whatsapp.com/send?phone=556732552337&text=Precisa%20de%20ajuda%20para%20planejar%20a%20sua%20viagem?%20Fale%20conosco!" target="_blank" class="fixed bottom-8 right-8 z-[80] group flex items-center gap-4 hover:-translate-y-1 transition-transform duration-500">
+        <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity bg-white px-5 py-3 rounded-md shadow-lg border border-brand-gold/10 text-[9px] uppercase tracking-widest font-bold text-brand-navy">
+            Concierge Digital
+        </div>
+        <div class="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white text-2xl shadow-xl shadow-[#25D366]/30">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <!-- Scripts Otimizados -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preloader Progress
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) {
+                setTimeout(() => { progressBar.style.width = '100%'; }, 100);
+            }
+
+            setTimeout(() => {
+                document.getElementById('preloader')?.classList.add('preloader-hidden');
+                document.body.classList.remove('loading-active');
+            }, 1500);
+
+            // Header Scroll Glassmorphism
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar?.classList.add('header-scrolled');
+                else navbar?.classList.remove('header-scrolled');
+            });
+
+            // Mobile Menu
+            const btnMenu = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const toggleMenu = () => {
+                if (mobileMenu?.classList.contains('opacity-0')) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'auto';
+                }
+            };
+            btnMenu?.addEventListener('click', toggleMenu);
+            document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', toggleMenu));
+
+            // Reveal Animation Premium
+            const revealOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            document.querySelectorAll('.reveal, .reveal-blur').forEach(el => revealOnScroll.observe(el));
+
+            // Hero Text Fade
+            const heroSlides = document.querySelectorAll('.hero-text-slide');
+            if (heroSlides.length > 0) {
+                let currentSlide = 0;
+                setInterval(() => {
+                    heroSlides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % heroSlides.length;
+                    heroSlides[currentSlide].classList.add('active');
+                }, 6000); 
+            }
+
+            // Popup VIP
+            setTimeout(() => {
+                if (!sessionStorage.getItem('vipPopup')) {
+                    const popup = document.getElementById('exit-popup');
+                    popup.classList.remove('hidden');
+                    popup.classList.add('flex');
+                    setTimeout(() => {
+                        popup.classList.remove('opacity-0');
+                        document.getElementById('popup-content').classList.remove('scale-95');
+                    }, 50);
+                    sessionStorage.setItem('vipPopup', 'true');
+                }
+            }, 120000); 
+        });
+
+        function closePopup() {
+            const popup = document.getElementById('exit-popup');
+            popup.classList.add('opacity-0');
+            document.getElementById('popup-content').classList.add('scale-95');
+            setTimeout(() => { 
+                popup.classList.add('hidden'); 
+                popup.classList.remove('flex');
+            }, 700);
+        }
+
+        function playVideo() {
+            const container = document.getElementById('video-container');
+            if (container) {
+                container.innerHTML = `<video src="https://storage.googleapis.com/code-translate-c9640.appspot.com/free_audio_conversions/419ab52d-4063-4fed-9588-6369028ed1b5.mp4" controls autoplay playsinline class="w-full h-full object-cover"></video>`;
+            }
+        }
+    </script>
+</body>
+</html>
